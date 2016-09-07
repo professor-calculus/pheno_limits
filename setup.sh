@@ -1,4 +1,4 @@
 source ~/setup_cms.sh
-cd ../../
+cd ../../../
 cmsenv
 cd -
