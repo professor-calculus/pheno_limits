@@ -12,7 +12,7 @@ def makePlot():
     infilename.append(sys.argv[i+1])
     luminosity.append(infilename[i].split("_")[2][:-7])
   modelname = infilename[0].split("_")[1][:-1]
-  print modelname
+  print "processing model: "+modelname
   
 #  CMS_lumi.lumi_13TeV = ""
 #  CMS_lumi.writeExtraText = 1
@@ -61,6 +61,7 @@ def makePlot():
   oneSigma = [0] * len(sys.argv)
   twoSigma = [0] * len(sys.argv)
   for k in range(len(sys.argv)-1):
+    print "Index: "+str(k)
     tf[k] = r.TFile(sys.argv[k+1])
     tree[k] = tf[k].Get('limit')
     values[k]=[]
@@ -106,26 +107,22 @@ def makePlot():
           median = lam*median**(-1./power)
           up95 = lam*up95**(-1./power)
           up68 = lam*up68**(-1./power)
-
+          
+          print down95
+          
           # luminosities, color
-          if k%3 == 0: # 3000 fb
+#          exp[k].SetLineStyle(1)
+#          exp[k].SetLineWidth(3)
+
+          if k == 0: # 3000 fb
             exp[k].SetLineStyle(1)
             exp[k].SetLineWidth(3)
-          if k%3 == 1: # 300 fb
+          if k == 1: # 300 fb
             exp[k].SetLineStyle(7)
             exp[k].SetLineWidth(3)
-          if k%3 == 2: # 20 fb
+          if k == 2: # 20 fb
             exp[k].SetLineStyle(3)
             exp[k].SetLineWidth(3)
-          # modelname, style
-          if k < 12: # D5d
-            exp[k].SetLineColor(205)
-          if k < 9: # D5c
-            exp[k].SetLineColor(210)
-          if k < 6: # D5b
-            exp[k].SetLineColor(216)
-          if k < 3: # D5a
-            exp[k].SetLineColor(0) #6
    
           # add to graph in the same way as before
           exp[k].SetPoint(point_counter, mh, median)
@@ -152,24 +149,23 @@ def makePlot():
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")
   mg.Draw("3")
-  mg.Draw("CL")
+  mg.Draw("AL") 
   dummyHist.Draw("AXIGSAME")
  
 #  CMS_lumi.CMS_lumi(canv, 4, iPos)
   # add text
-  if modelname == "D5":
-    lat.DrawLatex(0.55,0.92,"#color[205]{D5d}")
-    lat.DrawLatex(0.40,0.92,"#color[210]{D5c}")
-    lat.DrawLatex(0.25,0.92,"#color[216]{D5b}")
-    #lat.DrawLatex(0.10,0.92,"#color[0]{D5a}") #6
-  if modelname == "D6":
-    lat.DrawLatex(0.55,0.92,"#color[4]{D6b}")
-    lat.DrawLatex(0.40,0.92,"#color[6]{D6a}")
-  if modelname == "D7":
-    lat.DrawLatex(0.55,0.92,"#color[2]{D7d}")
-    lat.DrawLatex(0.40,0.92,"#color[3]{D7c}")
-    lat.DrawLatex(0.25,0.92,"#color[4]{D7b}")
-    lat.DrawLatex(0.10,0.92,"#color[6]{D7a}")
+#  if modelname == "D5":
+#    lat.DrawLatex(0.55,0.92,"#color[205]{D5d}")
+#    lat.DrawLatex(0.40,0.92,"#color[210]{D5c}")
+#    lat.DrawLatex(0.25,0.92,"#color[216]{D5b}")
+#  if modelname == "D6":
+#    lat.DrawLatex(0.55,0.92,"#color[4]{D6b}")
+#    lat.DrawLatex(0.40,0.92,"#color[6]{D6a}")
+#  if modelname == "D7":
+#    lat.DrawLatex(0.55,0.92,"#color[2]{D7d}")
+#    lat.DrawLatex(0.40,0.92,"#color[3]{D7c}")
+#    lat.DrawLatex(0.25,0.92,"#color[4]{D7b}")
+#    lat.DrawLatex(0.10,0.92,"#color[6]{D7a}")
 
   # draw legend
   dummy3000 = r.TGraphAsymmErrors()
