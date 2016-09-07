@@ -1,6 +1,28 @@
-# pheno_limits
+# pheno limits
+
+
+##Setting up combine:
+First setup combine tool in new CMSSW environment:
+
+```
+setenv SCRAM_ARCH slc6_amd64_gcc481
+cmsrel CMSSW_7_1_5 ### must be a 7_1_X release  >= 7_1_5;  (7.0.X and 7.2.X are NOT supported either)
+cd CMSSW_7_1_5/src
+cmsenv
+git cms-addpkg FWCore/Version
+git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
+cd HiggsAnalysis/CombinedLimit
+git fetch origin
+git checkout v5.0.4   # try v5.0.1 if any issues occur
+scramv1 b clean; scramv1 b
+```
+
+##Now setup actually these example limit scripts:
 
 Example running:
+```source run_example.sh```
+
+this peforms the following steps:
 
 first process a few files, toy yields are located in D5b_mchi_lambda800.txt
 ```
