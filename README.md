@@ -17,14 +17,18 @@ git checkout v5.0.4   # try v5.0.1 if any issues occur
 scramv1 b clean; scramv1 b
 ```
 
-##Now setup actually these example limit scripts:
+##Now setup the pheno limit code:
 
-Example running:
+```
+git clone git@github.com:bpenning/ pheno_limits
+cd pheno_limits
+```
+
+The following example creates card files for limit setting from a list of yields, performs the limit setting and finally plots the result:
+
 ```source run_example.sh```
 
-this peforms the following steps:
-
-first process a few files, toy yields are located in D5b_mchi_lambda800.txt
+In Detail. First process a few files, toy yields are located in D5b_mchi_lambda800.txt
 ```
 for model in D5b
 do
