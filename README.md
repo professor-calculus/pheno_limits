@@ -46,3 +46,6 @@ and plot
 ```
 python plot4EFTs.py D5b/combined_D5b_20fb.root D5b/combined_D5b_300fb.root D5b/combined_D5b_3000fb.root"
 ```
+Example output
+
+![example output](./D5_multilumi.png?raw=true "example")
