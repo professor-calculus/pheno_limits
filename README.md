@@ -19,10 +19,14 @@ scramv1 b clean; scramv1 b
 
 ##Now setup the pheno limit code:
 
+
+
 ```
 git clone git@github.com:bpenning/ pheno_limits
 cd pheno_limits
 ```
+
+There are two versions, one in 'limits_simple', one in 'limits_scaled'. Each contains example for limits setting. In 'scaled' we take a result based on existing results and scale them to 20, 300 and 300/fb. In the 'simple' example just one set of inputs is taken, procssesd and plotted. Example below for the slightly more complicated limit, the other example is clear then.
 
 The following example creates card files for limit setting from a list of yields, performs the limit setting and finally plots the result:
 
