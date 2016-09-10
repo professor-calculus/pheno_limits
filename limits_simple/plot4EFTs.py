@@ -10,8 +10,6 @@ def makePlot():
   luminosity="3000fb"
   lam=10000
   power=2
-  print "processing model: "+modelname
-
   
 #  CMS_lumi.lumi_13TeV = ""
 #  CMS_lumi.writeExtraText = 1
@@ -33,14 +31,6 @@ def makePlot():
   leg.SetTextSize(0.05)
 
   dummyHist = r.TH1D("dummy","",1,10,100)
-  dummyHist.GetXaxis().SetTitle('m_{#chi} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#Lambda [GeV]')
-  dummyHist.SetTitleSize(.05,"X")
-  dummyHist.SetLabelSize(.05,"X")
-  dummyHist.SetTitleOffset(1.3,"X")
-  dummyHist.SetTitleSize(.05,"Y")
-  dummyHist.SetLabelSize(.05,"Y") # did somehow cause segfault
-  dummyHist.SetTitleOffset(1.2,"Y")
   # make text box
   lat = r.TLatex()
   lat.SetNDC()
@@ -116,18 +106,18 @@ def makePlot():
 
   
   # draw dummy hist and multigraph
+  mg.GetXaxis().SetTitleOffset(1.2)
+  mg.GetYaxis().SetTitleOffset(1.2)
+  mg.GetXaxis().SetTitle('m_{#chi} [GeV]')
+  mg.GetYaxis().SetTitle('#Lambda [GeV]')
   dummyHist.SetMinimum(1)
   dummyHist.SetMaximum(mg.GetYaxis().GetXmax())
   dummyHist.SetLineColor(0)
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")
-#  mg.Draw("3")
   mg.Draw("AL") 
-  dummyHist.Draw("AXIGSAME")
  
 #  CMS_lumi.CMS_lumi(canv, 4, iPos)
-
-
   # draw legend
   dummy3000 = r.TGraphAsymmErrors()
   dummy3000.SetLineColor(r.kBlack)
@@ -148,7 +138,7 @@ def makePlot():
 
   # print canvas
   canv.Update()
-  canv.Print(modelname+"_multilumi.pdf")
+  canv.Print(modelname+"_limit.pdf")
   outf.cd()
   canv.SetName("limit_cavas")
   canv.Write()

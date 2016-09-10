@@ -13,10 +13,9 @@ parser.add_argument('-n','--name',default='125')
 parser.add_argument('--sqrts',default=13)
 parser.add_argument('-b','--batchmode',default=False)
 args=parser.parse_args()
-
+sig_yield=args.sig_yield_19_2fb
 
 bkg_yield=445631
-sig_yield=args.sig_yield_19_2fb
 bkg_stat=0.099
 bkg_syst=0.068
 sig_syst=0.114
