@@ -50,7 +50,6 @@ def makePlot():
   oneSigma = [0] * len(sys.argv)
   twoSigma = [0] * len(sys.argv)
   for k in range(len(sys.argv)-1):
-    print "Index: "+str(k)
     tf[k] = r.TFile(sys.argv[k+1])
     tree[k] = tf[k].Get('limit')
     values[k]=[]
@@ -58,7 +57,6 @@ def makePlot():
         tree[k].GetEntry(i)
         values[k].append([tree[k].mh, tree[k].limit])
     values[k].sort(key=lambda x: x[0])
-    print values[k]
     # make graph from values
     graph[k] = r.TGraphAsymmErrors()
     exp[k] = r.TGraphAsymmErrors()
