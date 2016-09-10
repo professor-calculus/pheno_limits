@@ -57,3 +57,28 @@ python plot4EFTs.py D5b/combined_D5b_20fb.root D5b/combined_D5b_300fb.root D5b/c
 Example output
 
 ![example output](./D5_multilumi.png?raw=true "example")
+
+
+
+
+##Setting in simple plot:
+
+In ``D5b/D5b_mchi.txt`` we have the yield for each signal sample 
+
+```
+cat D5b/D5b_mchi.txt
+1.0 30446.6
+10.0 25000
+20.0 10000
+```
+
+cardmaker.py contains the yields for background and relative signal and background systematics:
+
+```
+bkg_yield=445631
+bkg_stat=0.099
+bkg_syst=0.068
+sig_syst=0.114
+```
+
+Just adap these numbers and run 'run_example.sh' in an enviroment with the combine tool setup. 
