@@ -11,6 +11,7 @@ def makePlot():
   lam=10000
   power=2
   
+  colours=[30, 46, 38, 28, 32, 49]
 #  CMS_lumi.lumi_13TeV = ""
 #  CMS_lumi.writeExtraText = 1
   #CMS_lumi.extraText = "Model: "+modelname
@@ -49,8 +50,10 @@ def makePlot():
   exp = [0] * len(sys.argv)
   oneSigma = [0] * len(sys.argv)
   twoSigma = [0] * len(sys.argv)
+
   for k in range(len(sys.argv)-1):
     tf[k] = r.TFile(sys.argv[k+1])
+#    legends.append(sys.argv[k+1])
     tree[k] = tf[k].Get('limit')
     values[k]=[]
     for i in range(tree[k].GetEntries()):
@@ -82,7 +85,8 @@ def makePlot():
           up68 = lam*up68**(-1./power)
           print down95
           
-          exp[k].SetLineStyle(1)
+
+          exp[k].SetLineColor(colours[k]) #can be better solved with list of colors
           exp[k].SetLineWidth(3)
    
           # add to graph in the same way as before
@@ -99,7 +103,10 @@ def makePlot():
     oneSigma[k].SetFillColor(r.kGreen)
     twoSigma[k].SetFillColor(r.kYellow)
 
+    
     mg.Add(exp[k])
+    leg.AddEntry(exp[k], sys.argv[k+1].split('/', 1)[-1].replace(".root","").replace("combined_",""),"l")
+#    leg.AddEntry(exp[k], (sys.argv[k+1]).split('/', 1)[-1].replace(".root","").replace("combined_","", "l"))
     mg.Draw("AXIS")
 
   
@@ -114,23 +121,8 @@ def makePlot():
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")
   mg.Draw("AL") 
- 
-#  CMS_lumi.CMS_lumi(canv, 4, iPos)
+  #  CMS_lumi.CMS_lumi(canv, 4, iPos)
   # draw legend
-  dummy3000 = r.TGraphAsymmErrors()
-  dummy3000.SetLineColor(r.kBlack)
-  dummy3000.SetLineStyle(1)
-  dummy3000.SetLineWidth(3)
-  dummy300 = r.TGraphAsymmErrors()
-  dummy300.SetLineColor(r.kBlack)
-  dummy300.SetLineStyle(7)
-  dummy300.SetLineWidth(3)
-  dummy20 = r.TGraphAsymmErrors()
-  dummy20.SetLineColor(r.kBlack)
-  dummy20.SetLineStyle(3)
-  dummy20.SetLineWidth(3)
-  #leg.SetHeader('95% CL')
-  leg.AddEntry(dummy3000,'3000fb^{-1}','L')
   leg.Draw()
   canv.RedrawAxis()
 
