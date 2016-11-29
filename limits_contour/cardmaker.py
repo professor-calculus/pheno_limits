@@ -15,9 +15,9 @@ parser.add_argument('-b','--batchmode',default=False)
 args=parser.parse_args()
 
 
-bkg_yield=62.9926
+bkg_yield=9.0
 sig_yield=args.sig_yield_19_2fb
-bkg_stat=0.099
+bkg_stat=0.8
 bkg_syst=0.068
 sig_syst=0.114
 
