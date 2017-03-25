@@ -3,12 +3,13 @@ import os
 import sys
 import argparse as a
 
-cardmakerpath='./cardmaker_2_2fb_2b.py'
+cardmakerpath='./cardmaker_2_2fb_combined_exp.py'
 combinecommand='combine -M Asymptotic'
-outfilename='grid_info'
+outfilename='grid_info2'
 
 parser=a.ArgumentParser(description='Make and run over grid of cards for pheno studies')
 parser.add_argument('-i','--infile',required=True)
+parser.add_argument('-j','--infile2',required=True)
 parser.add_argument('--xname',default='mS')
 parser.add_argument('--yname',default='mZp')
 args=parser.parse_args()
@@ -16,6 +17,7 @@ args=parser.parse_args()
 xvarname=args.xname
 yvarname=args.yname
 infilename=args.infile
+infilename2=args.infile2
 path = os.path.split(infilename)[0]+'/'
 print 'xvar: '+xvarname+' yvar: '+yvarname+' from '+infilename
 
@@ -23,20 +25,26 @@ infile=open(infilename)
 points=infile.readlines()
 vals=[]
 
+infile2=open(infilename2)
+points2=infile2.readlines()
+vals2=[]
+
 for iPoint in range(len(points)):
     thisPoint=points[iPoint].split()
+    thisPoint2=points2[iPoint].split()
     if(len(thisPoint)!=3):
         print 'Error input format should be: xval yval yield, not '+points[iPoint]
     xvarval=thisPoint[0]
     yvarval=thisPoint[1]
     vals.append([yvarval,xvarval])
     yield_19_2fb=thisPoint[2]
+    yield2_19_2fb=thisPoint2[2]
 
 
-    print(cardmakerpath+' -s '+yield_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
+    print(cardmakerpath+' -s '+yield_19_2fb+' -t '+yield2_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
     print(combinecommand+' -m '+xvarval+' -n '+yvarname+yvarval+'_'+xvarname+xvarval+' darkHiggs_'+xvarname+xvarval+yvarname+yvarval+'.txt')
 
-    os.system(cardmakerpath+' -s '+yield_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
+    os.system(cardmakerpath+' -s '+yield_19_2fb+' -t '+yield2_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
     os.system(combinecommand+' -m '+xvarval+' -n '+yvarname+yvarval+'_'+xvarname+xvarval+' darkHiggs_'+xvarname+xvarval+yvarname+yvarval+'.txt')
 
 

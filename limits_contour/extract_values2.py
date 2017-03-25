@@ -74,10 +74,9 @@ def makePlot():
     n=0
     for j in range(len(ybincenters)):
       for i in range(len(xbincenters)):
-	with open("output.out", "a") as text_file:
+	with open("output2.out", "a") as text_file:
 	    mystring='['+str(xbincenters[i])+', ' +str(ybincenters[j])+', '+str(round(medianvalues[j*len(xbincenters)+i][2],4))+'],'
             text_file.write("{}\n".format(mystring))
-#	print '['+str(xbincenters[i])+', ' +str(ybincenters[j])+', '+str(round(medianvalues[j*len(xbincenters)+i][2],4))+'],'
         xvalues.append(xbincenters[i])
         yvalues.append(ybincenters[j])
         values.append(round(medianvalues[j*len(xbincenters)+i][2],4))

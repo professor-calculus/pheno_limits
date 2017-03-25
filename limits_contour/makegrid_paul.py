@@ -3,7 +3,7 @@ import os
 import sys
 import argparse as a
 
-cardmakerpath='./cardmaker_2_2fb_2b.py'
+cardmakerpath='./cardmaker_paul.py'
 combinecommand='combine -M Asymptotic'
 outfilename='grid_info'
 

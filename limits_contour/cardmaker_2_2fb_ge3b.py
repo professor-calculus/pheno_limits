@@ -15,23 +15,15 @@ parser.add_argument('-b','--batchmode',default=False)
 args=parser.parse_args()
 
 
-#2b
-data_yield=49
-bkg_yield=63.3
-sig_yield=args.sig_yield_19_2fb
-bkg_stat=13.2
-bkg_syst=0.068
-sig_syst=0.114
-
-
 #ge3b
-#data_yield=9
-#bkg_yield=8.6
-#sig_yield=args.sig_yield_19_2fb
-#bkg_stat=1.0
-#bkg_syst=0.068
-#sig_syst=0.114
-
+data_yield=3
+bkg_yield=1.1
+sig_yield=args.sig_yield_19_2fb
+bkg_stat=0.4
+bkg_syst=0.
+#sig_syst_temp=float(sig_yield)
+#sig_syst=sig_syst_temp/10.
+sig_syst=0.
 
 #systlumiscale=args.systlumiscale
 signalname=args.name
@@ -62,7 +54,7 @@ card.write('jmax 1 number of backgrounds\n')
 card.write('kmax * number of nuisance parameters (sources of systematic uncertainties)\n')
 card.write('shapes * ch1 FAKE\n')
 card.write('bin ch1\n')
-card.write('observation '+str(bkg_yield)+'\n')#set observation equal to data_yield or expected background
+card.write('observation '+str(data_yield)+'\n')#set observation equal to data_yield or expected background
 card.write('------------\n')
 card.write('bin\t\t\tch1\tch1\n')
 card.write('process\t\t\tsig\tbkg\n')
