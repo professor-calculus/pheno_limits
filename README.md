@@ -1,5 +1,9 @@
 # pheno limits
 
+##New update, for Paul
+limits_contour/paul contains an example mass scan (2D) with predicted yields.
+
+There's a few scripts which then give you an output which can be plotted.
 
 ##Setting up combine:
 First setup combine tool in new CMSSW environment:
