@@ -1,0 +1,3 @@
+# bin   obs     bkg     bkgerr  /path/to/sig/yield.txt
+#
+paul	12	6.6	1.3	yields.txt
