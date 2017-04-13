@@ -16,13 +16,14 @@ args=parser.parse_args()
 
 
 #Our example model: In the measurement we have 12 events (data), the bkg prediction is 6.6 +/- 1.3
-data_yield=12
-bkg_yield=6.6
+data_yield=12  #change to your data yield
+bkg_yield=6.6  #change to your bkg yield
 sig_yield=args.sig_yield_19_2fb
-bkg_stat=1.3
+bkg_stat=0.    #ignore
 #we're ignoring statistical errors here -- with enough MC events they shouldn't matter much anyway
-bkg_syst=0.
-sig_syst=0.
+bkg_syst=1.3/6.6  #Important: bkg error divided by bkg yield, it's relative error
+sig_syst=0.    #ignore if you dont have signal error available, if you do then un-comment LAST line
+               #and then set this to sig error/sig yield.
 
 
 #systlumiscale=args.systlumiscale
@@ -61,6 +62,6 @@ card.write('process\t\t\tsig\tbkg\n')
 card.write('process\t\t\t0\t1\n')
 card.write('rate\t\t\t'+str(sig_yield)+'\t'+str(bkg_yield)+'\n')
 card.write('------------\n')
-card.write('bkg_stat\tlnN\t-\t'+str(bkg_stat+1)+'\n')
+#card.write('bkg_stat\tlnN\t-\t'+str(bkg_stat+1)+'\n')
 card.write('bkg_syst\tlnN\t-\t'+str(bkg_syst+1)+'\n')
-card.write('sig_syst\tlnN\t'+str(sig_syst+1)+'\t-\n')
+#card.write('sig_syst\tlnN\t'+str(sig_syst+1)+'\t-\n')
