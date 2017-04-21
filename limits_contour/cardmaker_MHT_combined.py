@@ -37,122 +37,103 @@ args=parser.parse_args()
 data_yield=2
 bkg_yield=0.718
 sig_yield=args.sig_yield_19_2fb
-bkg_stat=0.331
-bkg_syst=0.068
+bkg_syst=0.331/0.718
 
 data2_yield=0
 bkg2_yield=0.958
 sig2_yield=args.sig2_yield_19_2fb
-bkg2_stat=0.347
-bkg2_syst=0.068
+bkg2_syst=0.347/0.958
 
 data3_yield=2
 bkg3_yield=1.26
 sig3_yield=args.sig3_yield_19_2fb
-bkg3_stat=0.401
-bkg3_syst=0.068
+bkg3_syst=0.401/1.26
 
 data4_yield=5
 bkg4_yield=1.38
 sig4_yield=args.sig4_yield_19_2fb
-bkg4_stat=0.444
-bkg4_syst=0.068
+bkg4_syst=0.444/1.38
 
 data5_yield=3
 bkg5_yield=0.821
 sig5_yield=args.sig5_yield_19_2fb
-bkg5_stat=0.292
-bkg5_syst=0.068
+bkg5_syst=0.292/0.821
 
 data6_yield=2
 bkg6_yield=0.755
 sig6_yield=args.sig6_yield_19_2fb
-bkg6_stat=0.294
-bkg6_syst=0.068
+bkg6_syst=0.294/0.755
 
 data7_yield=1
 bkg7_yield=0.314
 sig7_yield=args.sig7_yield_19_2fb
-bkg7_stat=0.126
-bkg7_syst=0.068
+bkg7_syst=0.126/0.314
 
 data8_yield=1
 bkg8_yield=0.0619
 sig8_yield=args.sig8_yield_19_2fb
-bkg8_stat=0.0311
-bkg8_syst=0.068
+bkg8_syst=0.0311/0.0619
 
 data9_yield=0
 bkg9_yield=0.147
 sig9_yield=args.sig9_yield_19_2fb
-bkg9_stat=0.067
-bkg9_syst=0.068
+bkg9_syst=0.067/0.147
 
 data10_yield=0
 bkg10_yield=0.161
 sig10_yield=args.sig10_yield_19_2fb
-bkg10_stat=0.0853
-bkg10_syst=0.068
+bkg10_syst=0.0853/0.161
 
 data11_yield=0
 bkg11_yield=0.436
 sig11_yield=args.sig11_yield_19_2fb
-bkg11_stat=0.246
-bkg11_syst=0.068
+bkg11_syst=0.246/0.436
 
 data12_yield=0
 bkg12_yield=0.146
 sig12_yield=args.sig12_yield_19_2fb
-bkg12_stat=0.0757
-bkg12_syst=0.068
+bkg12_syst=0.0757/0.146
 
 #ge3b
 data13_yield=0
 bkg13_yield=0.0989
 sig13_yield=args.sig13_yield_19_2fb
-bkg13_stat=0.0847
-bkg13_syst=0.068
+bkg13_syst=0.0847/0.0989
 
 data14_yield=1
 bkg14_yield=0.194
 sig14_yield=args.sig14_yield_19_2fb
-bkg14_stat=0.104
-bkg14_syst=0.068
+bkg14_syst=0.104/0.194
 
 data15_yield=0
 bkg15_yield=0.18
 sig15_yield=args.sig15_yield_19_2fb
-bkg15_stat=0.0964
-bkg15_syst=0.068
+bkg15_syst=0.0964/0.18
 
 data16_yield=1
 bkg16_yield=0.202
 sig16_yield=args.sig16_yield_19_2fb
-bkg16_stat=0.105
-bkg16_syst=0.068
+bkg16_syst=0.105/0.202
 
 data17_yield=1
 bkg17_yield=0.0961
 sig17_yield=args.sig17_yield_19_2fb
-bkg17_stat=0.0587
-bkg17_syst=0.068
+bkg17_syst=0.0587/0.0961
 
 data18_yield=0
 bkg18_yield=0.0427
 sig18_yield=args.sig18_yield_19_2fb
-bkg18_stat=0.0305
-bkg18_syst=0.068
+bkg18_syst=0.0305/0.0427
 
 data19_yield=0
 bkg19_yield=0.00615
 sig19_yield=args.sig19_yield_19_2fb
-bkg19_stat=0.0061
-bkg19_syst=0.068
+bkg19_syst=0.0061/0.00615
 
 data20_yield=0
 bkg20_yield=0.0808
 sig20_yield=args.sig20_yield_19_2fb
-bkg20_stat=0.0521
+bkg20_syst=0.0521/0.0808
 
 
 #systlumiscale=args.systlumiscale
@@ -191,6 +172,6 @@ card.write('process\t\t\tsig\tbkg\tsig\tbkg\tsig\tbkg\tsig\tbkg\tsig\tbkg\tsig\t
 card.write('process\t\t\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\t0\t1\n')
 card.write('rate\t\t\t'+str(sig_yield)+'\t'+str(bkg_yield)+'\t'+str(sig2_yield)+'\t'+str(bkg2_yield)+'\t'+str(sig3_yield)+'\t'+str(bkg3_yield)+'\t'+str(sig4_yield)+'\t'+str(bkg4_yield)+'\t'+str(sig5_yield)+'\t'+str(bkg5_yield)+'\t'+str(sig6_yield)+'\t'+str(bkg6_yield)+'\t'+str(sig7_yield)+'\t'+str(bkg7_yield)+'\t'+str(sig8_yield)+'\t'+str(bkg8_yield)+'\t'+str(sig9_yield)+'\t'+str(bkg9_yield)+'\t'+str(sig10_yield)+'\t'+str(bkg10_yield)+'\t'+str(sig11_yield)+'\t'+str(bkg11_yield)+'\t'+str(sig12_yield)+'\t'+str(bkg12_yield)+'\t'+str(sig13_yield)+'\t'+str(bkg13_yield)+'\t'+str(sig14_yield)+'\t'+str(bkg14_yield)+'\t'+str(sig15_yield)+'\t'+str(bkg15_yield)+'\t'+str(sig16_yield)+'\t'+str(bkg16_yield)+'\t'+str(sig17_yield)+'\t'+str(bkg17_yield)+'\t'+str(sig18_yield)+'\t'+str(bkg18_yield)+'\t'+str(sig19_yield)+'\t'+str(bkg19_yield)+'\t'+str(sig20_yield)+'\t'+str(bkg20_yield)+'\n')
 card.write('----------------------------------------------------------------------------\n')
-card.write('bkg_stat\tlnN\t-\t'+str(bkg_stat+1)+'\t-\t'+str(bkg2_stat+1)+'\t-\t'+str(bkg3_stat+1)+'\t-\t'+str(bkg4_stat+1)+'\t-\t'+str(bkg5_stat+1)+'\t-\t'+str(bkg6_stat+1)+'\t-\t'+str(bkg7_stat+1)+'\t-\t'+str(bkg8_stat+1)+'\t-\t'+str(bkg9_stat+1)+'\t-\t'+str(bkg10_stat+1)+'\t-\t'+str(bkg11_stat+1)+'\t-\t'+str(bkg12_stat+1)+'\t-\t'+str(bkg13_stat+1)+'\t-\t'+str(bkg14_stat+1)+'\t-\t'+str(bkg15_stat+1)+'\t-\t'+str(bkg16_stat+1)+'\t-\t'+str(bkg17_stat+1)+'\t-\t'+str(bkg18_stat+1)+'\t-\t'+str(bkg19_stat+1)+'\t-\t'+str(bkg20_stat+1)+'\n')
-card.write('bkg_syst\tlnN\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\n')
-card.write('sig_syst\tlnN\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\n')
+card.write('bkg_syst\tlnN\t-\t'+str(bkg_syst+1)+'\t-\t'+str(bkg2_syst+1)+'\t-\t'+str(bkg3_syst+1)+'\t-\t'+str(bkg4_syst+1)+'\t-\t'+str(bkg5_syst+1)+'\t-\t'+str(bkg6_syst+1)+'\t-\t'+str(bkg7_syst+1)+'\t-\t'+str(bkg8_syst+1)+'\t-\t'+str(bkg9_syst+1)+'\t-\t'+str(bkg10_syst+1)+'\t-\t'+str(bkg11_syst+1)+'\t-\t'+str(bkg12_syst+1)+'\t-\t'+str(bkg13_syst+1)+'\t-\t'+str(bkg14_syst+1)+'\t-\t'+str(bkg15_syst+1)+'\t-\t'+str(bkg16_syst+1)+'\t-\t'+str(bkg17_syst+1)+'\t-\t'+str(bkg18_syst+1)+'\t-\t'+str(bkg19_syst+1)+'\t-\t'+str(bkg20_syst+1)+'\n')
+#card.write('bkg_stat\tlnN\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\n')
+#card.write('sig_syst\tlnN\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\t0.\t-\n')
