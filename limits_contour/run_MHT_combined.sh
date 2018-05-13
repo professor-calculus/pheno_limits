@@ -1,2 +1,2 @@
-./makegrid_MHT_combined.py -i MHT/2b_130.txt -j MHT/2b_175.txt -j2 MHT/2b_225.txt -j3 MHT/2b_275.txt -j4 MHT/2b_325.txt -j5 MHT/2b_375.txt -j6 MHT/2b_425.txt -j7 MHT/2b_475.txt -j8 MHT/2b_525.txt -j9 MHT/2b_575.txt -j10 MHT/2b_650.txt -j11 MHT/2b_800.txt -j12 MHT/ge3b_130.txt -j13 MHT/ge3b_200.txt -j14 MHT/ge3b_275.txt -j15 MHT/ge3b_325.txt -j16 MHT/ge3b_375.txt -j17 MHT/ge3b_425.txt -j18 MHT/ge3b_525.txt -j19 MHT/ge3b_575.txt 
-./extract_values.py MHT/grid_info.txt > MHT_combined.txt
+./makegrid_MHT_combined.py -i P1/2b_MHT200.txt -j P1/2b_MHT400.txt -j2 P1/2b_MHT600.txt -j3 P1/2b_MHT900.txt -j4 P1/3b_MHT200.txt -j5 P1/3b_MHT400.txt -j6 P1/3b_MHT600.txt -j7 P1/3b_MHT900.txt -j8 P1/4b_MHT400.txt
+./extract_values.py P1/grid_info.txt > P1_2016_MHT_combined.txt

@@ -16,18 +16,6 @@ parser.add_argument('-j4','--infile5',required=True)
 parser.add_argument('-j5','--infile6',required=True)
 parser.add_argument('-j6','--infile7',required=True)
 parser.add_argument('-j7','--infile8',required=True)
-parser.add_argument('-j8','--infile9',required=True)
-parser.add_argument('-j9','--infile10',required=True)
-parser.add_argument('-j10','--infile11',required=True)
-parser.add_argument('-j11','--infile12',required=True)
-parser.add_argument('-j12','--infile13',required=True)
-parser.add_argument('-j13','--infile14',required=True)
-parser.add_argument('-j14','--infile15',required=True)
-parser.add_argument('-j15','--infile16',required=True)
-parser.add_argument('-j16','--infile17',required=True)
-parser.add_argument('-j17','--infile18',required=True)
-parser.add_argument('-j18','--infile19',required=True)
-parser.add_argument('-j19','--infile20',required=True)
 parser.add_argument('--xname',default='mS')
 parser.add_argument('--yname',default='mZp')
 args=parser.parse_args()
@@ -42,18 +30,6 @@ infilename5=args.infile5
 infilename6=args.infile6
 infilename7=args.infile7
 infilename8=args.infile8
-infilename9=args.infile9
-infilename10=args.infile10
-infilename11=args.infile11
-infilename12=args.infile12
-infilename13=args.infile13
-infilename14=args.infile14
-infilename15=args.infile15
-infilename16=args.infile16
-infilename17=args.infile17
-infilename18=args.infile18
-infilename19=args.infile19
-infilename20=args.infile20
 
 
 path = os.path.split(infilename)[0]+'/'
@@ -91,54 +67,6 @@ infile8=open(infilename8)
 points8=infile8.readlines()
 vals8=[]
 
-infile9=open(infilename9)
-points9=infile9.readlines()
-vals9=[]
-
-infile10=open(infilename10)
-points10=infile10.readlines()
-vals10=[]
-
-infile11=open(infilename11)
-points11=infile11.readlines()
-vals11=[]
-
-infile12=open(infilename12)
-points12=infile12.readlines()
-vals12=[]
-
-infile13=open(infilename13)
-points13=infile13.readlines()
-vals13=[]
-
-infile14=open(infilename14)
-points14=infile14.readlines()
-vals14=[]
-
-infile15=open(infilename15)
-points15=infile15.readlines()
-vals15=[]
-
-infile16=open(infilename16)
-points16=infile16.readlines()
-vals16=[]
-
-infile17=open(infilename17)
-points17=infile17.readlines()
-vals17=[]
-
-infile18=open(infilename18)
-points18=infile18.readlines()
-vals18=[]
-
-infile19=open(infilename19)
-points19=infile19.readlines()
-vals19=[]
-
-infile20=open(infilename20)
-points20=infile20.readlines()
-vals20=[]
-
 for iPoint in range(len(points)):
     thisPoint=points[iPoint].split()
     thisPoint2=points2[iPoint].split()
@@ -148,18 +76,6 @@ for iPoint in range(len(points)):
     thisPoint6=points6[iPoint].split()
     thisPoint7=points7[iPoint].split()
     thisPoint8=points8[iPoint].split()
-    thisPoint9=points9[iPoint].split()
-    thisPoint10=points10[iPoint].split()
-    thisPoint11=points11[iPoint].split()
-    thisPoint12=points12[iPoint].split()
-    thisPoint13=points13[iPoint].split()
-    thisPoint14=points14[iPoint].split()
-    thisPoint15=points15[iPoint].split()
-    thisPoint16=points16[iPoint].split()
-    thisPoint17=points17[iPoint].split()
-    thisPoint18=points18[iPoint].split()
-    thisPoint19=points19[iPoint].split()
-    thisPoint20=points20[iPoint].split()
     if(len(thisPoint)!=3):
         print 'Error input format should be: xval yval yield, not '+points[iPoint]
     xvarval=thisPoint[0]
@@ -173,24 +89,12 @@ for iPoint in range(len(points)):
     yield6_19_2fb=thisPoint6[2]
     yield7_19_2fb=thisPoint7[2]
     yield8_19_2fb=thisPoint8[2]
-    yield9_19_2fb=thisPoint9[2]
-    yield10_19_2fb=thisPoint10[2]
-    yield11_19_2fb=thisPoint11[2]
-    yield12_19_2fb=thisPoint12[2]
-    yield13_19_2fb=thisPoint13[2]
-    yield14_19_2fb=thisPoint14[2]
-    yield15_19_2fb=thisPoint15[2]
-    yield16_19_2fb=thisPoint16[2]
-    yield17_19_2fb=thisPoint17[2]
-    yield18_19_2fb=thisPoint18[2]
-    yield19_19_2fb=thisPoint19[2]
-    yield20_19_2fb=thisPoint20[2]
 
 
     print(cardmakerpath+' -s '+yield_19_2fb+' -t '+yield2_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
     print(combinecommand+' -m '+xvarval+' -n '+yvarname+yvarval+'_'+xvarname+xvarval+' darkHiggs_'+xvarname+xvarval+yvarname+yvarval+'.txt')
 
-    os.system(cardmakerpath+' -s '+yield_19_2fb+' -t '+yield2_19_2fb+' -t2 '+yield3_19_2fb+' -t3 '+yield4_19_2fb+' -t4 '+yield5_19_2fb+' -t5 '+yield6_19_2fb+' -t6 '+yield7_19_2fb+' -t7 '+yield8_19_2fb+' -t8 '+yield9_19_2fb+' -t9 '+yield10_19_2fb+' -t10 '+yield11_19_2fb+' -t11 '+yield12_19_2fb+' -t12 '+yield13_19_2fb+' -t13 '+yield14_19_2fb+' -t14 '+yield15_19_2fb+' -t15 '+yield16_19_2fb+' -t16 '+yield17_19_2fb+' -t17 '+yield18_19_2fb+' -t18 '+yield19_19_2fb+' -t19 '+yield20_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
+    os.system(cardmakerpath+' -s '+yield_19_2fb+' -t '+yield2_19_2fb+' -t2 '+yield3_19_2fb+' -t3 '+yield4_19_2fb+' -t4 '+yield5_19_2fb+' -t5 '+yield6_19_2fb+' -t6 '+yield7_19_2fb+' -t7 '+yield8_19_2fb+' -n '+xvarname+xvarval+yvarname+yvarval+' -b True')
     os.system(combinecommand+' -m '+xvarval+' -n '+yvarname+yvarval+'_'+xvarname+xvarval+' darkHiggs_'+xvarname+xvarval+yvarname+yvarval+'.txt')
 
 
